@@ -1,5 +1,6 @@
 from trakt import init
 import trakt.core
+from trakt.users import User
 import json
 import os
 from rich.console import Console
@@ -11,8 +12,6 @@ console = Console()
 This script takes care of the authentication for the user.
 This needs to be called before carying on any other functionality.
 """
-
-
 def _handle_existing_user(user_name, json_path):
     with open(json_path, 'r') as f:
             session_info = json.loads(f.read())

@@ -11,6 +11,10 @@ from rich.console import Console
 
 console = Console() 
 
+def handle_command():
+    args = _parse_arguments()
+    _perform_action(args)
+
 def _get_paser():
     parser = argparse.ArgumentParser(prog='ledger')
     subparsers = parser.add_subparsers(title='Commands', dest = 'subcommand')
@@ -18,16 +22,18 @@ def _get_paser():
     manage_interface.add_tracker_parser(subparsers)    
     return parser
 
-def parse_arguments():
+def _parse_arguments():
     parser = _get_paser()
     args = parser.parse_args()
-    console.print(args)
     return vars(args)
 
-def perform_action(args):
+def _perform_action(args):
     # TODO: use *list* of command handlers and pass the args to command handler based subcommand value
     # TODO: do not use if else  
+    if args['subcommand'] is None:
+        # TODO: handle help
+        exit()
     if search_interface.KEY == args['subcommand']:
         search_interface.handle_action(args)
-    if manage_interface.KEY in args['subcommand']:
+    elif manage_interface.KEY in args['subcommand']:
         manage_interface.handle_action(args)
