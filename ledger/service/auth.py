@@ -27,10 +27,14 @@ def _handle_new_user(user_name=None):
         user_name = input('Enter your Trakt User name: ')
     trakt.init(user_name, store=True)
 
-def auth_user(user_name=None):
+def authenticate_user(user_name=None):
     home_path = os.getenv('HOME')
     json_path = os.path.join(home_path, '.pytrakt.json')
     if os.path.exists(json_path):
         _handle_existing_user(user_name, json_path)
     else:
         _handle_new_user(user_name)
+
+
+def get_user():
+    return User('shrijit')

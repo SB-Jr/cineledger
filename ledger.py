@@ -10,5 +10,5 @@ from ledger.interface import interface
 from ledger.service import auth
 
 if __name__ == "__main__":
-    auth.auth_user('shrijit')
+    auth.authenticate_user('shrijit')
     interface.handle_command()

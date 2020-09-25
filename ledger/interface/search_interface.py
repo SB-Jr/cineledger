@@ -3,6 +3,7 @@ from rich.table import Table
 from rich import box
 from rich.progress import track
 from ledger.service import service
+from ledger.interface import display_helper
 
 # TODO: create a console setter to set a good looking console object
 console  = Console()
@@ -21,6 +22,8 @@ SEARCH_KEY_DICT = {
     TV_ONLY : ['--tv-only', 'Search for TV Shows only', 'store_true'],
     PERSON_ONLY : ['--person-only', 'Search for Personality only', 'store_true'],
     QUERY : ['query', 'The name of the Movie, Tv Show or Personality to search', 'store']
+    # TODO: add a searched movie to wish list
+    # TODO: add a searched movie to watch list
 }
 
 def add_search_parser(subparsers):
@@ -48,16 +51,7 @@ def show_choice(choice):
     console.print('Trakt Rating: ' + str(choice.ratings['rating']))
 
 def show_results(results):
-    # TODO: improve -> maybe shift to a different place where only prints are handled
-    if len(results) == 1:
-        return
-    table = Table(show_header=True, box=box.ASCII)
-    table.add_column('Index')
-    table.add_column('Title')
-    table.add_column('Year')
-    for i, result in enumerate(results):
-        table.add_row(str(i+1), result.title, str(result.year))
-    console.print(table)
+    display_helper.show_results(results)
 
 def get_choice(results):
     # TODO: improve -> maybe shift to a different place where only choices are handled
