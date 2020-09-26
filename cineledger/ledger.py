@@ -6,9 +6,9 @@ This script parses the arguments and calls all other functionality required.
 TODO: Handle Config
 """
 
-from ledger.interface import interface
+from ledger.interface import handle_command
 from ledger.service import auth
 
 if __name__ == "__main__":
     auth.authenticate_user('shrijit')
-    interface.handle_command()
+    handle_command()
