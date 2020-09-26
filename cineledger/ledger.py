@@ -4,11 +4,11 @@
 This is the CLI main handling script.
 This script parses the arguments and calls all other functionality required.
                             
-...............................[output]                                       
-.....................................
+                  [output]                                       
+                         
 [ledger] ------> [interface]  <----->  [service]
-................................       
-...............................[config]
+                            
+                  [config]
 
 ledger: Starting point of CineLedger
 inerface: get the information provided by "service", get's user configuration from "config" and outputs accordingly
