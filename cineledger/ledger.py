@@ -5,9 +5,9 @@ This is the CLI main handling script.
 This script parses the arguments and calls all other functionality required.
                             
                   [output]                                       
-                         
+                     
 [ledger] ------> [interface]  <----->  [service]
-                            
+                      
                   [config]
 
 ledger: Starting point of CineLedger
