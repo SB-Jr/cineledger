@@ -1,12 +1,15 @@
 """
 This is the interface which handles the user interaction and shows the appropriate results to the user.
-Handles the action that needs to take place depending on the user's arguments passed. 
+This takes the information from the respective service module's submodule.
+It also takes the user's config based on the settings stored by user and then outputs the data fetched from service module to the respective stream i.e. either the terminal or file.
 """
 
 import argparse
 from ledger.interface import search_interface
 from ledger.interface import manage_interface
 
+
+__all__ = ['handle_command']
 
 _SUBCOMMAND = 'subcommand'
 _interfaces = {
