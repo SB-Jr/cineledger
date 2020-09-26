@@ -3,7 +3,17 @@
 """
 This is the CLI main handling script.
 This script parses the arguments and calls all other functionality required.
-TODO: Handle Config
+                            
+                             [output]                                       
+                                    
+[ledger] ------> [interface]  <----->  [service]
+                                       
+                              [config]
+
+ledger: Starting point of CineLedger
+inerface: get the information provided by "service", get's user configuration from "config" and outputs accordingly
+service: handles the rest calls to get information from various sources
+config: handles the user configuration
 """
 
 from ledger.interface import handle_command
